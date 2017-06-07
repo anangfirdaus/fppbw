@@ -12,7 +12,7 @@ class Crud extends CI_Controller {
 	 }
 	public function index(){
 		$jumlah = $this->mymodel->getJumlahData();
-		$config['base_url'] = 'http://localhost/codeigniter/crud/index';
+		$config['base_url'] = 'http://differentiated-furn.000webhostapp.com/index.php/crud/index';
 		$config['total_rows'] = $jumlah;
 		$config['per_page'] = 6;
 
@@ -51,7 +51,7 @@ class Crud extends CI_Controller {
 			redirect('crud/viewlogin');
 		}else{
 			$jumlah = $this->mymodel->getJumlahData();
-			$config['base_url'] = 'http://localhost/codeigniter/crud/viewadminhome';
+			$config['base_url'] = 'http://differentiated-furn.000webhostapp.com/index.php/crud/viewadminhome';
 			$config['total_rows'] = $jumlah;
 			$config['per_page'] = 3;
 
@@ -87,12 +87,97 @@ class Crud extends CI_Controller {
 			$this->load->view('adminhome',$res);	
 		}
 	}
+public function filter()
+    {	
+    	if (isset($_POST['nike']) && isset($_POST['adidas'])){
+    		$this->index();
+		}
+		else if (!isset($_POST['nike']) && !isset($_POST['adidas'])){
+    		$this->index();
+		}
+    	else if (isset($_POST['adidas'])){
+	    	$keyword=$_POST['adidas'];
+	        $jumlah = $this->mymodel->getJumlahDatakeyword($keyword);
+			$config['base_url'] = 'http://differentiated-furn.000webhostapp.com/index.php/crud/search_keyword';
+			$config['total_rows'] = $jumlah;
+			$config['per_page'] = 12;
+
+			$config['full_tag_open'] = '<ul class="pagination">';
+		    $config['full_tag_close'] = '</ul>';
+		    $config['first_link'] = '&laquo; First';
+		    $config['first_tag_open'] = '<li class="prev page">';
+		    $config['first_tag_close'] = '</li>';
+		 
+		    $config['last_link'] = 'Last &raquo;';
+		    $config['last_tag_open'] = '<li class="next page">';
+		    $config['last_tag_close'] = '</li>';
+		 
+		    $config['next_link'] = 'Next &rarr;';
+		    $config['next_tag_open'] = '<li class="next page">';
+		    $config['next_tag_close'] = '</li>';
+		 
+		    $config['prev_link'] = '&larr; Prev';
+		    $config['prev_tag_open'] = '<li class="prev page">';
+		    $config['prev_tag_close'] = '</li>';
+		 
+		    $config['cur_tag_open'] = '<li class="active"><a href="">';
+		    $config['cur_tag_close'] = '</a></li>';
+		 
+		    $config['num_tag_open'] = '<li class="page">';
+		    $config['num_tag_close'] = '</li>';
+
+			$this->pagination->initialize($config);
+
+				
+			$res['data']= $this->mymodel->getDatakeyword($config['per_page'],$this->uri->segment(3),$keyword);
+			$this->load->view('home',$res);
+		}
+		else if (isset($_POST['nike'])){
+	    	$keyword=$_POST['nike'];
+	        $jumlah = $this->mymodel->getJumlahDatakeyword($keyword);
+			$config['base_url'] = 'http://differentiated-furn.000webhostapp.com/index.php/crud/search_keyword';
+			$config['total_rows'] = $jumlah;
+			$config['per_page'] = 12;
+
+			$config['full_tag_open'] = '<ul class="pagination">';
+		    $config['full_tag_close'] = '</ul>';
+		    $config['first_link'] = '&laquo; First';
+		    $config['first_tag_open'] = '<li class="prev page">';
+		    $config['first_tag_close'] = '</li>';
+		 
+		    $config['last_link'] = 'Last &raquo;';
+		    $config['last_tag_open'] = '<li class="next page">';
+		    $config['last_tag_close'] = '</li>';
+		 
+		    $config['next_link'] = 'Next &rarr;';
+		    $config['next_tag_open'] = '<li class="next page">';
+		    $config['next_tag_close'] = '</li>';
+		 
+		    $config['prev_link'] = '&larr; Prev';
+		    $config['prev_tag_open'] = '<li class="prev page">';
+		    $config['prev_tag_close'] = '</li>';
+		 
+		    $config['cur_tag_open'] = '<li class="active"><a href="">';
+		    $config['cur_tag_close'] = '</a></li>';
+		 
+		    $config['num_tag_open'] = '<li class="page">';
+		    $config['num_tag_close'] = '</li>';
+
+			$this->pagination->initialize($config);
+
+				
+			$res['data']= $this->mymodel->getDatakeyword($config['per_page'],$this->uri->segment(3),$keyword);
+			$this->load->view('home',$res);
+		}
+
+
+    }
 	public function viewadminhomepesanan(){
 		if (!$this->session->userdata('loggedin')) {
 			redirect('crud/viewlogin');
 		}else{
 			$jumlah = $this->mymodel->getJumlahDatapesanan();
-			$config['base_url'] = 'http://localhost/codeigniter/crud/viewadminhomepesanan';
+			$config['base_url'] = 'http://differentiated-furn.000webhostapp.com/index.php/crud/viewadminhomepesanan';
 			$config['total_rows'] = $jumlah;
 			$config['per_page'] = 3;
 
@@ -369,7 +454,7 @@ class Crud extends CI_Controller {
     {	
     	$keyword=$this->input->post('keyword');
         $jumlah = $this->mymodel->getJumlahDatakeyword($keyword);
-		$config['base_url'] = 'http://localhost/codeigniter/crud/search_keyword';
+		$config['base_url'] = 'http://differentiated-furn.000webhostapp.com/index.php/crud/search_keyword';
 		$config['total_rows'] = $jumlah;
 		$config['per_page'] = 12;
 
