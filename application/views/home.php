@@ -3,7 +3,7 @@
 	<head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Shop &mdash; Free Website Template, Free HTML5 Template by gettemplates.co</title>
+	<title>TVSTORE DISKON SNEAKER SETIAP HARI</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="Free HTML5 Website Template by gettemplates.co" />
 	<meta name="keywords" content="free website templates, free html5, free template, free bootstrap, free website template, html5, css3, mobile first, responsive" />
@@ -98,9 +98,9 @@
 	<aside id="fh5co-hero" class="js-fullheight">
 		<div class="flexslider js-fullheight">
 			<ul class="slides">
-		   	<li style="background-image: url(<?php echo base_url()?>gambar/slider2.jpg);">
-		   	</li>
 		   	<li style="background-image: url(<?php echo base_url()?>gambar/slider1.jpg);">
+		   	</li>
+		   	<li style="background-image: url(<?php echo base_url()?>gambar/slider2.jpg);">
 		   	</li>
 		   	<li style="background-image: url(<?php echo base_url()?>gambar/slider3.jpg);">
 		  	</ul>
@@ -137,6 +137,16 @@
 				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
 					<h2>Stuff</h2>
 				</div>
+<div class="row animate-box">
+				<div class="col-md-8 col-md-offset-2 text-center">
+				<form method="POST" action="<?php echo base_url()."crud/filter"; ?>">
+					<h4>adidas<input type="checkbox" name="adidas" value="adidas">         nike<input type="checkbox" name="nike" value="nike"></h4>
+					<!-- <a href="<?php echo site_url("crud/viewadidas")?>"><button>adidas</button></a>
+					<a href="<?php echo site_url("crud/viewnike")?>"><button>nike</button></a> -->
+					<input class="btn btn-primary" type="submit" value="filter">
+				</form>
+				</div>
+			</div>
 			</div>
 			<div id="produk" class="row">
 				<?php foreach ($data as $d){ ?>
@@ -160,20 +170,38 @@
 			
 		</div>
 	</div>
+        <div id="fh5co-contact">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-5 col-md-push-1 animate-box">
+					
+					<div class="fh5co-contact-info">
+						<h3>Contact Information</h3>
+						<ul>
+							<li class="address">Surabaya<br> Jawa Timur, Indonesia</li>
+							<li class="phone"><a href="tel://1234567920">0878 5531 5005</a></li>
+							<li class="email"><a href="mailto:tvstore@gmail.com">tvstore_@gmail.com</a></li>
+						</ul>
+					</div>
+
+				</div>
+			</div>
+			
+		</div>
+	</div>
 
 	<footer id="fh5co-footer" role="contentinfo">
 		<div class="container">
 			<div class="row copyright">
 				<div class="col-md-12 text-center">
 					<p>
-						<small class="block">&copy; Anang 2017.</small> 
-						<small class="block">Designed by <a href="http://freehtml5.co/" target="_blank">FreeHTML5.co</a> Demo Images: <a href="http://blog.gessato.com/" target="_blank">Gessato</a> &amp; <a href="http://unsplash.co/" target="_blank">Unsplash</a></small>
+						<small class="block">&copy; Anang 2017.</small>
 					</p>
 					<p>
 						<ul class="fh5co-social-icons">
 							<li><a href="#"><i class="icon-twitter"></i></a></li>
 							<li><a href="#"><i class="icon-facebook"></i></a></li>
-							<li><a href="#"><i class="icon-linkedin"></i></a></li>
+							<li><a href="https://instagram.com/tvstore_"><i class="icon-linkedin"></i></a></li>
 							<li><a href="#"><i class="icon-dribbble"></i></a></li>
 						</ul>
 					</p>
@@ -207,4 +235,3 @@
 
 	</body>
 </html>
-
